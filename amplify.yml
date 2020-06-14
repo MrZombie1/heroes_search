@@ -1,16 +1,41 @@
-version: 1
+version: 1.0
+env:
+  variables:
+      key: value
+backend:
+  phases:
+    preBuild:
+      commands:
+        - *enter command*
+    build:
+      commands:
+        - *enter command*
+    postBuild:
+        commands:
+        - *enter command*
 frontend:
   phases:
     preBuild:
       commands:
+        - cd react-app
         - npm ci
     build:
       commands:
         - npm run build
   artifacts:
-    baseDirectory: dist/angular-aws
     files:
-      - '**/*'
+        - location
+        - location
+    discard-paths: yes
+    baseDirectory: location
   cache:
     paths:
-      - node_modules/**/*
+        - path
+        - path
+  customHeaders:
+   - pattern: 'file-pattern'
+     headers:
+     - key: 'custom-header-name'
+       value: 'custom-header-value'
+     - key: 'custom-header-name'
+       value: 'custom-header-value'
